@@ -8,17 +8,11 @@ use unit;
 sub new {
   my ( $class, $scale, $offset, $inverse ) = @_;
   $class = ref($class) || $class;
-  print $class;
   my $this = {};
   bless($this, $class);
   $this->{SCALE} = $scale;
   $this->{OFFSET} = $offset ||= 0.;
   $this->{INVERSE} = $inverse ? $inverse : UnitConverter->new(1. / $scale, -$offset / $scale, $this);
-  if ($inverse) {
-    print("totomontoto");
-  } else {
-    print("titimontiti");
-  }
   return $this;
 }
 
@@ -43,7 +37,7 @@ sub linear {
   if ($this->offset == 0.) {
     return $this;
   } else {
-    return UnitConverter->new($this->scale, 0., undef);
+    return UnitConverter->new($this->scale);
   }
 }
 
@@ -53,7 +47,7 @@ sub linearPow {
   if ($this->offset == 0. and $pow == 1.) {
     return $this;
   } else {
-    return UnitConverter->new($this->scale ** $pow, 0., undef);
+    return UnitConverter->new($this->scale ** $pow);
   }
 }
 
@@ -64,22 +58,6 @@ sub convert {
 
 sub concatenate {
   my ( $this, $converter ) = @_;
-  return UnitConverter->new($converter->scale * $this->scale, $this->convert($converter->offset), undef);
+  return UnitConverter->new($converter->scale * $this->scale, $this->convert($converter->offset));
 }
-
-sub titi {
- print("j'imprime titi");
-}
-
-#sub new {
-
-#  my ($class,$scale,$offset,$inverse) = @_;
-#  my $this = {}
-#  bless($this,$class);
-#  $this->{SCALE} = $scale
-#  $this->{OFFSET} = $offset
-#  $this->{INVERSE} = ($inverse == null) ? UnitConverter->new(1. / $scale, $offset / $scale, $this) : $inverse
-
-#  return $this;
-#}
 1;

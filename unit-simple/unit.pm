@@ -4,29 +4,46 @@ use strict;
 use warnings;
 
 use unitConverter;
+use factor;
+use transformedUnit;
+
+# heritage
+use base qw( Factor );
 
 sub new {
   my ( $class ) = @_;
   $class = ref($class) || $class;
-  print $class;
-  my $this = {};
+  my $this = $class->SUPER::new();
   bless($this, $class);
   return $this;
 }
 
-sub titi {
- print("j'imprime titi moi aussi !");
+sub getConverterTo {
+  my ( $this, $target ) = @_;
+  return $target->toBase->inverse->concatenate($this->toBase);
 }
 
-#sub new {
+sub toBase {
+  die "abstract method toBase";
+}
 
-#  my ($class,$scale,$offset,$inverse) = @_;
-#  my $this = {}
-#  bless($this,$class);
-#  $this->{SCALE} = $scale
-#  $this->{OFFSET} = $offset
-#  $this->{INVERSE} = ($inverse == null) ? UnitConverter->new(1. / $scale, $offset / $scale, $this) : $inverse
+sub shift {
+  my ( $this, $value ) = @_;
+  return TransformedUnit->new(UnitConverter->new(1.0, $value), $this);
+}
 
-#  return $this;
-#}
+sub scaleMultiply {
+  my ( $this, $value ) = @_;
+  return TransformedUnit->new(UnitConverter->new($value), $this);
+}
+
+sub scaleDivide {
+  my ( $this, $value ) = @_;
+  return $this->scaleMultiply(1.0 / $value);
+}
+
+sub factor {
+  my ( $this, $numerator, $denominator ) = @_;
+  return Factor->new($this, $numerator, $denominator);
+}
 1;
