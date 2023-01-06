@@ -5,9 +5,6 @@ use warnings;
 use FindBin 1.51 qw( $RealBin );
 use lib $RealBin;
 
-use unit;
-use unitConverter;
-use factor;
 use fundamentalUnit;
 use derivedUnit;
 
