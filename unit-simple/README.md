@@ -86,7 +86,7 @@ $kPerMToCPerM->inverse->convert(3.); # 3
 
 Utilisation des conversions non décimales :
 
-```py
+```pl
 use fundamentalUnit;
 use derivedUnit;
 
