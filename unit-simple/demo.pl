@@ -21,5 +21,5 @@ my $km2 = DerivedUnit->new($km->factor(2));
 my $cm2 = DerivedUnit->new($cm->factor(2));
 
 my $cm2ToKm2 = $cm2->getConverterTo($km2);
-print($cm2ToKm2->convert(3), "\n");
-print($cm2ToKm2->inverse->convert(4), "\n");
+print $cm2ToKm2->convert(3), "\n";
+print $cm2ToKm2->inverse->convert(4), "\n";

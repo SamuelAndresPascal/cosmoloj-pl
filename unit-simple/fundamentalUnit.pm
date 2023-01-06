@@ -18,6 +18,6 @@ sub new {
 }
 
 sub toBase {
-  return UnitConverter->new(1.0);
+  return UnitConverter->identity;
 }
 1;

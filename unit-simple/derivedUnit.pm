@@ -27,7 +27,7 @@ sub definition {
 
 sub toBase {
   my $this = shift;
-  my $transform = UnitConverter->new(1.0);
+  my $transform = UnitConverter->identity;
   my @def = $this->definition;
   for (@def) {
     $transform = $_->dim->toBase->linearPow($_->power)->concatenate($transform);

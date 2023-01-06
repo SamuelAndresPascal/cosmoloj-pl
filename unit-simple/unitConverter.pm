@@ -12,7 +12,11 @@ sub new {
   bless($this, $class);
   $this->{SCALE} = $scale;
   $this->{OFFSET} = $offset ||= 0.;
-  $this->{INVERSE} = $inverse ? $inverse : UnitConverter->new(1. / $scale, -$offset / $scale, $this);
+  $this->{INVERSE} = $inverse
+    ? $inverse
+    : ($scale == 1.000000000000000000 && $offset == 0.000000000000000000)
+      ? $this # si on détecte l'identité, elle est son propre inverse
+      : UnitConverter->new(1. / $scale, -$offset / $scale, $this);
   return $this;
 }
 
@@ -34,7 +38,7 @@ sub inverse {
 sub linear {
   my $this = shift;
   # comparaison volontaire avec un double
-  if ($this->offset == 0.) {
+  if ($this->offset == 0.000000000000000000) {
     return $this;
   } else {
     return UnitConverter->new($this->scale);
@@ -44,7 +48,7 @@ sub linear {
 sub linearPow {
   my ( $this, $pow ) = @_;
   # comparaison volontaire avec des doubles
-  if ($this->offset == 0. and $pow == 1.) {
+  if ($this->offset == 0.00000000000000000 and $pow == 1.00000000000000000) {
     return $this;
   } else {
     return UnitConverter->new($this->scale ** $pow);
@@ -59,5 +63,25 @@ sub convert {
 sub concatenate {
   my ( $this, $converter ) = @_;
   return UnitConverter->new($converter->scale * $this->scale, $this->convert($converter->offset));
+}
+
+# static
+sub newLinear {
+  my ( $class, $scale ) = @_;
+  return UnitConverter->new($scale, 0.);
+}
+
+# static
+sub newTranslation {
+  my ( $class, $offset ) = @_;
+  return UnitConverter->new(1., $offset);
+}
+
+# static
+my $identity = UnitConverter->newLinear(1.0);
+
+# static
+sub identity {
+  return $identity;
 }
 1;

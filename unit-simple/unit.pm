@@ -29,12 +29,12 @@ sub toBase {
 
 sub shift {
   my ( $this, $value ) = @_;
-  return TransformedUnit->new(UnitConverter->new(1.0, $value), $this);
+  return TransformedUnit->new(UnitConverter->newTranslation($value), $this);
 }
 
 sub scaleMultiply {
   my ( $this, $value ) = @_;
-  return TransformedUnit->new(UnitConverter->new($value), $this);
+  return TransformedUnit->new(UnitConverter->newLinear($value), $this);
 }
 
 sub scaleDivide {
