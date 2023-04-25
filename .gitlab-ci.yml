@@ -2,7 +2,7 @@ before_script:
   - perl --version
 
 variables:
-  - UNIT_SIMPLE_VERSION: "0.1"
+  UNIT_SIMPLE_VERSION: "0.1"
 
 stages:
   - test
