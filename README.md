@@ -7,3 +7,9 @@
 ```bash
 sudo apt-get install perl
 ```
+
+## Pour la publication sur les dépôts CPAN
+
+```bash
+sudo apt-get install libcpan-uploader-perl
+```

@@ -33,4 +33,23 @@ sub toBase {
   my $this = shift;
   return $this->reference->toBase->concatenate($this->toReference);
 }
+
+=head1 NAME
+
+TransformedUnit - representation of an unit based on a referenced unit and an unit conversion
+
+=head1 DESCRIPTION
+
+This module maps a conceptual class that represents an unit based on a referenced unit and an unit conversion.
+
+=head1 AUTHOR
+
+Samuel Andres
+
+=head1 LICENSE
+
+UnLicense
+
+=cut
+
 1;

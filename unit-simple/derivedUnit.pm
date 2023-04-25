@@ -34,4 +34,22 @@ sub toBase {
   }
   return $transform;
 }
+
+=head1 NAME
+
+DerivedUnit - representation of an unit defined as a factor of powers of units
+
+=head1 DESCRIPTION
+
+This module maps a conceptual class that represents an unit defined as a factor of powers of units.
+
+=head1 AUTHOR
+
+Samuel Andres
+
+=head1 LICENSE
+
+UnLicense
+
+=cut
 1;

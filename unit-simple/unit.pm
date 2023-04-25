@@ -46,4 +46,23 @@ sub factor {
   my ( $this, $numerator, $denominator ) = @_;
   return Factor->new($this, $numerator, $denominator);
 }
+
+=head1 NAME
+
+Unit - representation of an abstract unit
+
+=head1 DESCRIPTION
+
+This module maps a conceptual class that represents an abstract unit of measurement.
+
+=head1 AUTHOR
+
+Samuel Andres
+
+=head1 LICENSE
+
+UnLicense
+
+=cut
+
 1;

@@ -84,4 +84,23 @@ my $identity = UnitConverter->newLinear(1.0);
 sub identity {
   return $identity;
 }
+
+=head1 NAME
+
+UnitConverter - representation of an unit converter
+
+=head1 DESCRIPTION
+
+This module maps a conceptual class that represents an unit converter.
+
+=head1 AUTHOR
+
+Samuel Andres
+
+=head1 LICENSE
+
+UnLicense
+
+=cut
+
 1;

@@ -20,4 +20,23 @@ sub new {
 sub toBase {
   return UnitConverter->identity;
 }
+
+=head1 NAME
+
+FundamentalUnit - representation of an unit defined by itself
+
+=head1 DESCRIPTION
+
+This module maps a conceptual class that represents an unit defined by itself.
+
+=head1 AUTHOR
+
+Samuel Andres
+
+=head1 LICENSE
+
+UnLicense
+
+=cut
+
 1;
