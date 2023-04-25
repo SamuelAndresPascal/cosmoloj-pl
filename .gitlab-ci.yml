@@ -27,7 +27,7 @@ cpan-package:unit-simple:
   script:
     - cd unit-simple
     - perl Makefile.PL
-    - make MANIFEST
+    - make manifest
     - make
     - make test
     - make dist
