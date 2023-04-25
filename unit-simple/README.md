@@ -1,5 +1,7 @@
 # Simple Unit (implémentation Perl)
 
+[![CPAN version](https://badge.fury.io/pl/Cosmoloj-UnitSimple.svg)](https://badge.fury.io/pl/Cosmoloj-UnitSimple)
+
 ## Utilisation
 
 Utilisation des unités transformées :
