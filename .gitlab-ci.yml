@@ -2,7 +2,7 @@ before_script:
   - perl --version
 
 variables:
-  UNIT_SIMPLE_VERSION: "0.1"
+  UNIT_SIMPLE_VERSION: "0.1.2"
 
 stages:
   - test
@@ -26,6 +26,7 @@ cpan-package:unit-simple:
   stage: cpan-package
   script:
     - cd unit-simple
+    - sed -i "s#our \$VERSION = .*#our \$VERSION = \"$UNIT_SIMPLE_VERSION\";#g" unitSimple.pm
     - perl Makefile.PL
     - make manifest
     - make
@@ -33,11 +34,11 @@ cpan-package:unit-simple:
     - make dist
   artifacts:
     paths:
-      - unit-simple/Unit-Simple-$UNIT_SIMPLE_VERSION.tar.gz
+      - unit-simple/Cosmoloj-UnitSimple-$UNIT_SIMPLE_VERSION.tar.gz
 
 cpan-publish:unit-simple:
   stage: cpan-publish
   when: manual
   script:
     - cd unit-simple
-    - cpan-upload -u $CPAN_USERNAME -p $CPAN_PASSWORD Unit-Simple-$UNIT_SIMPLE_VERSION.tar.gz
+    - cpan-upload -u $CPAN_USERNAME -p $CPAN_PASSWORD Cosmoloj-UnitSimple-$UNIT_SIMPLE_VERSION.tar.gz

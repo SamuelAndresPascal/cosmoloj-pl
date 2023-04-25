@@ -3,8 +3,6 @@ package Factor;
 use strict;
 use warnings;
 
-our $VERSION = 0.1;
-
 sub new {
   my ( $class, $unit, $numerator, $denominator ) = @_;
   $class = ref($class) || $class;

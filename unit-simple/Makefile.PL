@@ -9,9 +9,9 @@ sub MY::libscan {
 }
 
 WriteMakefile(
-  NAME             => 'Unit::Simple',
-  VERSION_FROM     => 'factor.pm',
-#  ABSTRACT_FROM    => 'lib/App/foo.pm',
+  NAME             => 'Cosmoloj::UnitSimple',
+  VERSION_FROM     => 'unitSimple.pm',
+  ABSTRACT_FROM    => 'unitSimple.pm',
   AUTHOR           => 'Samuel Andres',
   LICENSE          => 'UnLicense',
   MIN_PERL_VERSION => '5.008004',
