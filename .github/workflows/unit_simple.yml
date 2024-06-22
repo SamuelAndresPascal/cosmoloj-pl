@@ -26,9 +26,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - working-directory: unit-simple
-        run: sed -i "s#our \$VERSION = .*#our \$VERSION = \"$UNIT_SIMPLE_VERSION\";#g" unitSimple.pm
-        run: perl Makefile.PL
-        run: make manifest
-        run: make
-        run: make test
-        run: make dist
+        run: |
+          sed -i "s#our \$VERSION = .*#our \$VERSION = \"$UNIT_SIMPLE_VERSION\";#g" unitSimple.pm
+          perl Makefile.PL
+          make manifest
+          make
+          make test
+          make dist
