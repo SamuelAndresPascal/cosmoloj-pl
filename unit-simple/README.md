@@ -1,5 +1,8 @@
 # Simple Unit (implémentation Perl)
 
+[![example workflow](https://github.com/SamuelAndresPascal/cosmoloj-pl/actions/workflows/unit_simple.yml/badge.svg)](https://github.com/SamuelAndresPascal/cosmoloj-pl/actions)
+
+
 [![CPAN version](https://badge.fury.io/pl/Cosmoloj-UnitSimple.svg)](https://badge.fury.io/pl/Cosmoloj-UnitSimple)
 
 ## Utilisation
